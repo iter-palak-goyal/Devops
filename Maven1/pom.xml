@@ -82,7 +82,7 @@
                     <archive>
                         <manifest>
 
-                            <mainClass>Project1.App</mainClass>
+                            <mainClass>Project1.SnakeGame</mainClass>
 
                         </manifest>
                     </archive>
