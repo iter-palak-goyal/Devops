@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
-//SNAKEGAME
+//SNAKEGAME - hi
 public class SnakeGame extends JPanel implements ActionListener {
 
     static final int SCREEN_WIDTH = 600;
