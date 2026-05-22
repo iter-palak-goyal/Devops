@@ -1,31 +1,30 @@
-node {
+pipeline {
+    agent any
 
-    properties([
-        
-    ])
-
-    stage('Git Clone') {
-
-        git 'https://github.com/iter-palak-goyal/Devops.git'
+    tools {
+        maven 'Maven'
+        jdk 'JDK17'
     }
 
-    stage('Compile') {
+    stages {
 
-        dir('Maven1/src/main/java') {
-
-            sh '''
-            javac Project1/*.java
-            '''
+        stage('Build') {
+            steps {
+                dir('Maven1') {
+                    sh 'mvn clean package'
+                }
+            }
         }
+
     }
 
-    stage('Run Snake Game') {
+    post {
+        success {
+            echo 'Snake Game Build Successful!'
+        }
 
-        dir('Maven1/src/main/java') {
-
-            sh '''
-            java Project1.SnakeGame
-            '''
+        failure {
+            echo 'Build Failed!'
         }
     }
 }
