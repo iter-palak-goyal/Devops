@@ -1,0 +1,31 @@
+node {
+
+    properties([
+        
+    ])
+
+    stage('Git Clone') {
+
+        git 'https://github.com/iter-palak-goyal/Devops.git'
+    }
+
+    stage('Compile') {
+
+        dir('Maven1/src/main/java') {
+
+            sh '''
+            javac Project1/*.java
+            '''
+        }
+    }
+
+    stage('Run Snake Game') {
+
+        dir('Maven1/src/main/java') {
+
+            sh '''
+            java Project1.SnakeGame
+            '''
+        }
+    }
+}
