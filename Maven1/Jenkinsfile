@@ -1,24 +1,12 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven'
-    }
-
     stages {
 
         stage('Build') {
             steps {
                 dir('Maven1') {
-                    sh 'mvn clean package'
-                }
-            }
-        }
-
-        stage('Run') {
-            steps {
-                dir('Maven1') {
-                    sh 'java -cp target/classes Project1.SnakeGame'
+                    sh '/opt/homebrew/bin/mvn clean package'
                 }
             }
         }
